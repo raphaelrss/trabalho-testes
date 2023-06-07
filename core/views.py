@@ -61,3 +61,26 @@ def login(user):
 def deactivate(user):
     user.active = False
     return user.password
+
+
+# implementação que vai passar no teste
+def change_password(user, new_password1, new_password2):
+    if new_password1 != new_password2:
+        return f'As senhas não são iguais.'
+    if user.password == new_password1:
+        return f'A nova senha não pode ser igual a anterior.'
+    user.password = new_password1
+    user.save()
+    return f'Senha alterada com sucesso.'
+
+
+# implementação que vai falhar no teste
+# def change_password(user, new_password1, new_password2):
+#     if new_password1 != new_password2:
+#         return f'As senhas não são iguais.'
+#     if user.password == new_password1:
+#         return f'A nova senha não pode ser igual a anterior.'
+#     user.password = new_password1
+#     return f'Senha alterada com sucesso!'
+
+
